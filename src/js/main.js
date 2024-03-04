@@ -1,14 +1,29 @@
 const jobListings = document.getElementById("job-listings");
+const nextBtn = document.getElementById("nextButton");
+const backBtn = document.getElementById("backButton");
+let page = 1;
+let skip;
+
+nextBtn.onclick = function () {
+  jobListings.innerHTML = "";
+  skip = page++;
+  console.log(skip);
+  loadJobs();
+};
+
+backBtn.onclick = function () {
+  jobListings.innerHTML = "";
+  skip = page--;
+  console.log(skip);
+  loadJobs();
+};
 
 //Hämta data för jobbannonser och skriv ut till DOM
 async function loadJobs() {
   const response = await fetch(
-    `https://jobsearch.api.jobtechdev.se/search?occupation-field=apaJ_2ja_LuF&q=Sverige?q=backend?q=web?q=javascript?q=typescript?%20-javautvecklare%20-expert%20-c++%20-manager%20-salesforce%20-ios%20-servicenow%20-architect%20-analyst%20-AI%20-python%20-testledare%20-.net%20-engineer%20-senior%20-sr%20-CD%20-AWS%20-golang%20-bsc%20-msc%20-kandidat%20-master&limit=100`
+    `https://jobsearch.api.jobtechdev.se/search?occupation-field=apaJ_2ja_LuF&q=Sverige?q=backend?q=web?q=javascript?q=typescript?%20-javautvecklare%20-expert%20-c++%20-manager%20-salesforce%20-ios%20-servicenow%20-architect%20-analyst%20-AI%20-python%20-testledare%20-.net%20-engineer%20-senior%20-sr%20-CD%20-AWS%20-golang%20-bsc%20-msc%20-kandidat%20-master&limit=1&offset=${page}`
   );
   const jobPosts = await response.json();
-  console.log(jobPosts); //Ta bort
-
-  console.log(jobPosts.hits[0].headline); //Ta bort
 
   iterateJobs(jobPosts);
 }
@@ -30,26 +45,24 @@ function iterateJobs(jobPosts) {
   }
 }
 
- //Läs in jobb
+//Läs in jobb
 loadJobs();
 
 //Hämta användarens position
 function getUserLocation(jobPosts) {
-const successCallback = (position) => {
-  console.log(position);
-};
-const errorCallback = (error) => {
-  console.error(error);
-};
+  const successCallback = (position) => {
+    console.log(position);
+  };
+  const errorCallback = (error) => {
+    console.error(error);
+  };
 
-navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+  navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 
-//Funktion för att räkna ut avstånd mellan koordinator för jobb och user location
-
+  //Funktion för att räkna ut avstånd mellan koordinator för jobb och user location
 }
 getUserLocation();
 
-  
 //Variabler för HTML-element
 const searchBar = document.getElementById("searchbar");
 const searchButton = document.getElementById("searchbutton");
@@ -76,4 +89,3 @@ searchButton.onclick = async function () {
     errorMsg.innerHTML = "Hittade inga annonser";
   }
 };
-
