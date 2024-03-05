@@ -5,8 +5,8 @@
 
 
 #job-listings {
-    height: 70vh;
-    aspect-ratio: 9 / 10;
+    height:30em;
+    aspect-ratio: 8 / 10;
     perspective: 1000px;
     perspective-origin: center 50%;
     transform-style: preserve-3d;
@@ -15,19 +15,84 @@
 
 .job_card {
     background-color: var.$main-color;
-    border-radius: 40px;
+    border-radius: 40px 40px 0px 0px;
     margin: 20px auto;
     padding: 20px 20px;
 
     width: 100%;
     height: 100%;
     position: relative;
-    cursor: pointer;
     user-select: none;
 }
 
-.job_card div {
-
+.job_card_yes {
+    animation: swipeYes 1s;
 }
 
- 
+.job_card_no {
+    animation: swipeNo 1s;
+}
+
+@keyframes swipeYes {
+    from {
+        transform: rotate(0);
+        left: 0%;
+        opacity: 1;
+    } to {
+        transform: rotate(60deg) translateY(-80px);
+        left: 80%;
+        opacity: 0;
+    }
+}
+
+@keyframes swipeNo {
+    from {
+        transform: rotate(0);
+        left: 0%;
+        opacity: 1;
+    } to {
+        transform: rotate(-60deg) translateY(-80px);
+        left: -80%;
+        opacity: 0;
+    }
+}
+
+
+.full-text {
+    display: none;
+}
+
+.show-less {
+    display: none;
+}
+
+.truncated-text {
+    display: block;
+}
+
+.show-more {
+    display: block;
+}
+
+.icon-container {
+    display: flex;
+    position: relative;
+    margin-top: 0;
+    justify-content: center;
+    background-color: #ffbb0e;
+    border-radius: 0 0 40px 40px;
+
+    img {
+        max-width: 5em;
+        margin: 0 2em;
+        filter: grayscale(100%);
+        opacity: 30%;
+        transition: 1.5s ease;
+    }
+
+    img:hover {
+        filter: none;
+        opacity: 100%;
+        cursor: pointer;
+    }
+}
