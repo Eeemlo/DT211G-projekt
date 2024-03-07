@@ -15,7 +15,7 @@
 
 .job_card {
     background-color: var.$main-color;
-    border-radius: 40px 40px 0px 0px;
+    border-radius: 40px 40px 40px 40px;
     margin: 20px auto;
     padding: 20px 20px;
 
@@ -23,14 +23,15 @@
     height: 100%;
     position: relative;
     user-select: none;
+    animation: softLoad 1s;
 }
 
 .job_card_yes {
-    animation: swipeYes 1s;
+    animation: swipeYes 1.5s;
 }
 
 .job_card_no {
-    animation: swipeNo 1s;
+    animation: swipeNo 1.5s;
 }
 
 @keyframes swipeYes {
@@ -39,8 +40,8 @@
         left: 0%;
         opacity: 1;
     } to {
-        transform: rotate(60deg) translateY(-80px);
-        left: 80%;
+        transform: rotate(90deg) translateY(-100px);
+        left: 100%;
         opacity: 0;
     }
 }
@@ -51,9 +52,19 @@
         left: 0%;
         opacity: 1;
     } to {
-        transform: rotate(-60deg) translateY(-80px);
-        left: -80%;
+        transform: rotate(-90deg) translateY(-100px);
+        left: -100%;
         opacity: 0;
+    }
+}
+
+@keyframes softLoad {
+    from {
+        height: 0%;
+        opacity: 0;
+    } to {
+        opacity: 1;
+        height: 100%;
     }
 }
 
@@ -77,10 +88,10 @@
 .icon-container {
     display: flex;
     position: relative;
-    margin-top: 0;
+    margin-top: 20px;
     justify-content: center;
     background-color: #ffbb0e;
-    border-radius: 0 0 40px 40px;
+    border-radius: 20px 20px 20px 20px;
 
     img {
         max-width: 5em;
