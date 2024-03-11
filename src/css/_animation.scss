@@ -1,0 +1,38 @@
+@use "var";
+@use "base";
+
+.square1 {
+    background-color: aquamarine;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    z-index: 100;
+    animation: slideLeft 2s 2.5s forwards;
+    left: 0;
+}
+
+.square2 {
+    @extend .square1;
+    animation: slideLeft 2s 1.5s forwards;
+    background-color: bisque;
+}
+
+.square3 {
+    @extend .square2;
+    animation: slideLeft 2s 0.5s forwards;
+    background-color: rgb(153, 103, 43);
+
+    p {
+        position: absolute;
+        animation: slideLeft 2s 0.5s forwards;
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        width: 100%;
+        height: 100%;
+    } to {
+        width: 0%;
+    }
+}

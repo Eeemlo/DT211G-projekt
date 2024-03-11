@@ -8,25 +8,39 @@
     <script src="js/main.js" type="module"></script>
 </head>
 <body>
+<div class="square1"></div>
+<div class="square2"></div>
+<div class="square3"></div>
+</div>
    <main>
 
+    <div class="saved-jobs">
+
+    </div>
+
+    <button class="saved-button">
+        <div class="bar"><img src="icons/favorite.svg" alt="favoriter"></div><div class="amount"></div>
+
+    </button> 
     <div class="search-container">    
         <div>        
         <label for="searchbar">Sök:</label>
-        <input type="text" name="searchbar" id="searchbar" placeholder="Ange ort">
+        <input type="text" name="searchbar" id="searchbar" placeholder="Filtrera jobb på ort">
         <button id="searchbutton">Sök</button>
     </div>
-
+    </div>
         <div id="error-msg"></div></div>
+
 
         <div id="job-listings">
         </div>
-
+   
         <div class="icon-container">
             <img class="icon-no" src="icons/cancel.svg" alt="kryss">
             <img class="icon-yes" src="icons/heart.svg" alt="hjärta">
         </div>
-   
    </main>
+
+
 </body>
 </html>

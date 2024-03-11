@@ -97,10 +97,7 @@ calculateDistance();
 
 //Funktion för att loopa igenom resultat och skriva ut till DOM (byt namn sedan!!!)
 function iterateJobs(jobData) {
-    //Lagra nya värden i destLat och destLong
-    destLat = jobData.hits[0].workplace_address.coordinates[1];
-    destLong = jobData.hits[0].workplace_address.coordinates[0];
-    console.log("Destination: " + destLat, destLong); //Ta bort
+
 
     //Förskjut att skriva ut till DOM
     setTimeout(() => {
@@ -125,16 +122,17 @@ function iterateJobs(jobData) {
     }, 800); //Anpassa delay efter tiden som sätts på animationen i CSS
 }
 
-//Funktion för att spara annons i localStorage
-/*FUNKAR EJ
-  function saveToLocalStorage(jobPosts) {
-    localStorage.setItem(`annons${page}`, `${jobPosts.hits[0].headline}`);
+
+  function saveToLocalStorage() {
+    localStorage.setItem(`test`, `blå`);
     console.log("knappen funkar")
   
   }
+
+  saveToLocalStorage()
   
   yesIcon.addEventListener("click", saveToLocalStorage, false);
-*/
+
 
 //Försök till att visa mer eller mindre av texten.. FUNKAR INTE!!!!
 /*
