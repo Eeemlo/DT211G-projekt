@@ -55,14 +55,15 @@ h3, h4, h5 {
 .saved-jobs {
     height: 70vh;
     overflow: scroll;
+    padding-left: 0.5em;
 }
 
 .saved-links {
     background-color: #fff;
     margin: 15px auto;
-    height: 3em;
+    height: 4em;
     max-width: 700px;
-    border-radius: 20px;
+    border-radius: 40px;
     padding: 10px 30px;
     display: flex;
     justify-content: space-between;

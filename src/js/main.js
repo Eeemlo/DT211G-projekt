@@ -74,7 +74,7 @@ function iterateJobs(jobData, userLat, userLong) {
                 }</p>
             </div>
         </div>`;
-    }, 100); //Anpassa delay efter tiden som sätts på animationen i CSS
+    }, 0); //Anpassa delay efter tiden som sätts på animationen i CSS
 }
 
 
@@ -99,7 +99,7 @@ function saveToLocalStorage() {
 
     console.log(page);
 
-    savedJobs.innerHTML += `<a class ="link-wrapper" target="_blank" href="${jobAds.hits[0].webpage_url}"><div class="saved-links"><h4>${jobAds.hits[0].headline} @ ${jobAds.hits[0].employer.name}</h4>
+    savedJobs.innerHTML += `<a class ="link-wrapper" target="_blank" href="${jobAds.hits[0].webpage_url}"><div class="saved-links"><h4>${truncate(jobAds.hits[0].headline)} @ ${jobAds.hits[0].employer.name}</h4>
                 <h5>${jobAds.hits[0].workplace_address.municipality}</h5></div></a>
                 `;
 }
@@ -145,7 +145,7 @@ async function calculateDistance(lat1, long1, lat2, long2) {
 }
 
 // Funktion som kortar ner text
-function truncate(description, maxLength = 800) {
+function truncate(description, maxLength = 50) {
     if (description.length <= maxLength) return description;
 
     const truncated = description.substring(0, maxLength - 3);
