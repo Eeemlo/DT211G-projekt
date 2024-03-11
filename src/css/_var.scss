@@ -1,5 +1,6 @@
 /*Färgschema ljust*/
 $bg-color: #721aff;
+$darker-bg: darken($bg-color, 20%);
 $main-color: #fff;
 $darker-main: darken($main-color, 20%);
 $pop-color: #ffbb0e;

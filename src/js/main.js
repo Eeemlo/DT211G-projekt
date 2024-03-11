@@ -9,6 +9,7 @@ let destLong;
 const savedButton = document.querySelector(".saved-button");
 const savedJobs = document.querySelector(".saved-jobs");
 let jobData = null;
+const errorMsg = document.getElementById("error-msg");
 
 //Funktion för att toggla "mina sparade jobb"
 window.onload = function () {
@@ -50,9 +51,13 @@ loadJobs();
 
 // Funktion för att skriva ut resultat till DOM (byt namn sedan!!)
 function iterateJobs(jobData, userLat, userLong) {
+    let displayedJobs = []; //FUNKAR INTE ÄN, TA BORT OM DET EJ LÖSER SIG
+
     // Lagra nya värden i destLat och destLong
     destLat = jobData.hits[0].workplace_address.coordinates[1];
     destLong = jobData.hits[0].workplace_address.coordinates[0];
+
+    console.log(jobData.hits[0].workplace_address)
 
     // Förskjut att skriva ut till DOM
     setTimeout(async () => {
@@ -74,33 +79,29 @@ function iterateJobs(jobData, userLat, userLong) {
                 }</p>
             </div>
         </div>`;
-    }, 100); //Anpassa delay efter tiden som sätts på animationen i CSS
+    }, 0); //Anpassa delay efter tiden som sätts på animationen i CSS
+
+    console.log(jobData)
+
+    /* FÖRSK TILL ATT PUSHA TILL ARRAY
+    let jobAdId = jobData.hits[0].id;
+displayedJobs.push(jobAdId);
+
+    console.log(displayedJobs)
+    */
+
 }
 
 
-/* FUNKAR EJ!
-function increaseHeartNo() {
-    const amountEl = document.querySelector(".amount");
-    let i = 0;
-    i = i++
-    
-    amountEl.innerHTML = i;
-}
 
-//lagra annons i localStorage vid klick
-yesIcon.addEventListener("click", increaseHeartNo, false);
-*/
 
 //Funktion för att spara annons till localStorage och skriva ut till DOM
 function saveToLocalStorage() {
     localStorage.setItem(`annons${page}`, JSON.stringify(jobData));
     let jobAds = JSON.parse(localStorage.getItem(`annons${page}`)); 
-    console.log(jobAds);
 
-    console.log(page);
-
-    savedJobs.innerHTML += `<a class ="link-wrapper" target="_blank" href="${jobAds.hits[0].webpage_url}"><div class="saved-links"><h4>${jobAds.hits[0].headline} @ ${jobAds.hits[0].employer.name}</h4>
-                <h5>${jobAds.hits[0].workplace_address.municipality}</h5></div></a>
+    savedJobs.innerHTML += `<a class ="link-wrapper" target="_blank" href="${jobAds.hits[0].webpage_url}"><div class="saved-links"><h5>${truncate(jobAds.hits[0].headline)} @ ${truncate(jobAds.hits[0].employer.name, 25)}</h5>
+                <h6>${jobAds.hits[0].workplace_address.municipality}</h6></div></a>
                 `;
 }
 
@@ -115,7 +116,6 @@ const searchButton = document.getElementById("searchbutton");
 
 //Event vid adressinmatning
 searchButton.onclick = async function () {
-    const errorMsg = document.getElementById("error-msg");
     input = searchBar.value;
 
     jobListings.innerHTML = "";
@@ -129,7 +129,7 @@ await loadJobs();
             iterateJobs(jobData, userLat, userLong);
         });
     } else {
-        errorMsg.innerHTML = "Hittade inga annonser";
+        errorMsg.innerHTML = "Hittade inga annonser, testa att söka på en annan ort";
     }
 };
 
@@ -145,7 +145,7 @@ async function calculateDistance(lat1, long1, lat2, long2) {
 }
 
 // Funktion som kortar ner text
-function truncate(description, maxLength = 800) {
+function truncate(description, maxLength = 50) {
     if (description.length <= maxLength) return description;
 
     const truncated = description.substring(0, maxLength - 3);
@@ -165,9 +165,21 @@ function playYes() {
     });
 }
 
-//Trigga funktion "swipeYes"
+//Öka antalet sparade annonser i blå ruta vid varje klick på hjärtat
+const amountEl = document.querySelector(".amount");
+let i = 0;
+amountEl.innerHTML = i;
+
+function increaseHeartNo() {
+    i = i + 1
+    amountEl.innerHTML = i;
+}
+
+
+//Klickevent för yesIcon
 yesIcon.addEventListener("click", playYes, false);
 yesIcon.addEventListener("click", increasePageVar, false);
+yesIcon.addEventListener("click", increaseHeartNo, false);
 
 //Funktion för att köra och återställa animation "swipeNo"
 function playNo() {

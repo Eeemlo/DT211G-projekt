@@ -12,15 +12,22 @@ body {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+    font-family: 'Manrope', verdana;
+
+}
+
+main {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    flex-direction: column;
     padding: 10px;
 }
 
 p, ul {
-    line-height: 1.5;
-    letter-spacing: 0.3;
+    line-height: 1.8;
+    letter-spacing: 0.5;
+    font-size: 0.8em;
 }
 
 h2 {
@@ -31,7 +38,20 @@ h3, h4, h5 {
     margin: 0.1em 0;
 }
 
-
+.header-bar {
+    max-height: 50px;
+    height: 100%;
+    width: 100%;
+    background-color: var.$darker-bg;
+    top: 0;
+    font-family: 'orbitron';
+    font-weight: 800;
+    font-size: 2em;
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+}
 
 .amount {
     background-color: rgb(0, 8, 255);
@@ -55,14 +75,15 @@ h3, h4, h5 {
 .saved-jobs {
     height: 70vh;
     overflow: scroll;
+    padding: 0 0.5em;
 }
 
 .saved-links {
     background-color: #fff;
     margin: 15px auto;
-    height: 3em;
+    height: 4.5em;
     max-width: 700px;
-    border-radius: 20px;
+    border-radius: 40px;
     padding: 10px 30px;
     display: flex;
     justify-content: space-between;
@@ -90,6 +111,12 @@ h3, h4, h5 {
     border-radius: 10px;
 }
 
+.functions {
+    max-width: 700px;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: -20px;
+}
 
 .search-container {
     

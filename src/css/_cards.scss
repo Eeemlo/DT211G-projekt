@@ -93,7 +93,7 @@
 .icon-container {
     display: flex;
     position: relative;
-    margin: 20px 1px 0px;
+    margin: 40px 1px 0px;
     max-width: 700px;
     width: 100%;
     justify-content: center;
@@ -113,4 +113,15 @@
         opacity: 100%;
         cursor: pointer;
     }
+}
+
+#error-msg {
+    display: flex;
+    position: absolute;
+    height: 70vh;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 1.5em;
+    color: #fff;
 }
