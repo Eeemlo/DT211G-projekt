@@ -1,0 +1,267 @@
+@use "var";
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var.$bg-color;
+    overflow: hidden;
+    font-family: "Manrope", verdana;
+}
+
+main {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    height: 90vh;
+    width: 100vw;
+}
+
+p,
+ul {
+    line-height: 1.8;
+    letter-spacing: 0.5;
+    font-size: 0.8em;
+}
+
+h2 {
+    margin-bottom: 0.6em;
+}
+
+h3,
+h4,
+h5 {
+    margin: 0.1em 0;
+}
+
+
+.header-bar {
+    max-height: 30px;
+    height: 100%;
+    width: 100%;
+    background-color: none;
+    font-family: "orbitron";
+    font-weight: 800;
+    font-size: 2em;
+    padding: 2px;
+    position: absolute;
+    bottom: 0;
+    margin: 0 0 20px 0;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+}
+
+.header-bar2 {
+    @extend .header-bar;
+    background: linear-gradient(45deg,var.$bg-color, var.$darker-bg , var.$bg-color);
+    background-size: 100% 100%;
+    position: relative;
+    top: 0;
+    max-height: 70px;
+    padding: 20px 0;
+    height: 100%;
+}
+
+.square1 {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    background: linear-gradient(45deg,var.$bg-color, var.$pink-color , var.$darker-bg);
+    background-size: 600% 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    animation: gradient 16s linear infinite;
+    animation-direction: alternate;
+
+
+    h1 {
+        font-family: "orbitron";
+        font-size: 3em;
+        margin-bottom: 1em;
+        text-align: center;
+        animation: zoomIn 1s 0.5s both;
+    }
+
+    p {
+        text-align: center;
+        font-size: 1.2em;
+        animation: zoomIn 1s 1.5s both;
+    }
+}
+
+.button {
+    height: 3em;
+    width: 12em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var.$pop-color;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    margin-top: 3em;
+    text-decoration: none;
+    color: black;
+    animation: zoomIn 1s 2.5s both, shake 3s 0.5s infinite;
+}
+
+.button:hover {
+    animation: none;
+}
+
+.button:hover {
+    background-color: var.$darker-pop-color;
+    cursor: pointer;
+}
+
+
+.amount {
+    background-color: rgb(0, 8, 255);
+    width: 20px;
+    height: 20px;
+    display: flex;
+    cursor: pointer;
+    margin: -30px 15px 0 0;
+    z-index: 40;
+    float: right;
+    position: relative;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 600;
+}
+
+.saved-jobs {
+    height: 70vh;
+    overflow: scroll;
+    padding: 0 0.5em;
+    margin-top: 70px;
+}
+
+.saved-links {
+    background-color: #fff;
+    margin: 15px auto;
+    height: 4.5em;
+    max-width: 700px;
+    border-radius: 40px;
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.link-wrapper {
+    color: black;
+    text-decoration: none;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(var.$pop-color, var.$pink-color);
+    border-radius: 10px;
+}
+
+.functions {
+    max-width: 700px;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: -20px;
+}
+
+.search-container {
+    label {
+        display: none;
+    }
+
+    input {
+        width: 40%;
+        height: 2em;
+        padding: 0 0.5em;
+        border-radius: 5px;
+        border: none;
+    }
+
+    #searchbutton {
+        height: 2em;
+        width: 4em;
+        background-color: var.$pop-color;
+        border: none;
+        border-radius: 5px;
+        font-weight: 600;
+    }
+    
+    #searchbutton:hover {
+        background-color: var.$darker-pop-color;
+        cursor: pointer;
+    }
+
+
+}
+
+/*Mina sparade jobb*/
+
+.saved-button {
+    display: block;
+    width: 50px;
+    cursor: pointer;
+    appearance: none;
+    background: none;
+    outline: none;
+    border: none;
+    margin: -20px 1em 0;
+    z-index: 10;
+    float: right;
+}
+
+.saved-button .bar {
+    display: block;
+    border-radius: 5px;
+    width: 100%;
+    margin: 10px 0 0;
+    transition: 0.4s;
+    position: relative;
+    z-index: 10;
+
+    img {
+        width: 3.5em;
+    }
+}
+
+.saved-jobs {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    min-height: 100vh;
+    z-index: 1;
+    background-color: var.$pop-color;
+    padding-top: 120px;
+    transition: 0.4s;
+}
+
+.saved-jobs.active {
+    left: 0;
+}

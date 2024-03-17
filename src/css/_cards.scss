@@ -1,0 +1,85 @@
+@use "var";
+@use "base";
+
+
+
+
+#job-listings {
+    height: 65vh;
+    perspective-origin: center 50%;
+    transform-style: preserve-3d;
+    position: relative;
+    max-width: 700px;
+    width: 100%;
+}
+
+.job_card {
+    background-color: var.$main-color;
+    border-radius: 10px 10px 10px 10px;
+    margin: 20px auto;
+    padding: 20px 20px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    user-select: none;
+    animation: softLoad 2s;
+    overflow-y: scroll;
+}
+
+.head-info {
+    margin-bottom: 1.5em;
+}
+
+.distance-calc {
+    background-color: var.$bg-color;
+    width: fit-content;
+    color: #fff;
+    padding: 0.2em 0.5em;
+    margin-top: 0.2em;
+}
+
+
+.job_card_yes {
+    animation: swipeYes 1.5s forwards;
+}
+
+.job_card_no {
+    animation: swipeNo 1.5s forwards;
+}
+
+
+.icon-container {
+    display: flex;
+    position: relative;
+    margin: 30px 1px 30px;
+    max-width: 700px;
+    width: 100%;
+    justify-content: center;
+    background-color: var.$pop-color;
+    border-radius: 20px 20px 20px 20px;
+
+    img {
+        max-width: 5em;
+        margin: 0 2em;
+        filter: grayscale(100%);
+        opacity: 30%;
+        transition: 1.5s ease;
+    }
+
+    img:hover {
+        filter: none;
+        opacity: 100%;
+        cursor: pointer;
+    }
+}
+
+#error-msg {
+    display: flex;
+    position: absolute;
+    height: 70vh;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 1.5em;
+    color: #fff;
+}
