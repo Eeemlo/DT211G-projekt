@@ -78,6 +78,7 @@ h5 {
     width: 100vw;
     height: 100vh;
     z-index: 100;
+    padding: 0 1em;
     background: linear-gradient(45deg,var.$bg-color, var.$pink-color , var.$darker-bg);
     background-size: 600% 100%;
     display: flex;
