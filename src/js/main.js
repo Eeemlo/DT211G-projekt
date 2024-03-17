@@ -91,8 +91,6 @@ async function iterateJobs(jobData) {
         destLat = jobData.hits[0].workplace_address.coordinates[1];
         destLong = jobData.hits[0].workplace_address.coordinates[0];
 
-        // Förskjut att skriva ut till DOM
-        setTimeout(async () => {
             jobListings.innerHTML = ` 
             <div class="job_card">
                 <div>
@@ -115,7 +113,6 @@ async function iterateJobs(jobData) {
                     }</p>
                 </div>
             </div>`;
-        }, 300); //Anpassa delay efter tiden som sätts på animationen i CSS
     } else {
         // Om jobData inte innehåller några träffar, visa felmeddelande
         jobListings.innerHTML = '';
@@ -179,26 +176,38 @@ function truncate(description, maxLength = 50) {
     return truncated + ellipsis;
 }
 
+//Funktion för att återställa animationen playNo
 function playNo() {
     if (playCount < jobData.hits.length) {
         document.querySelector(".job_card").className = "job_card";
-        requestAnimationFrame((time) => {
-            requestAnimationFrame((time) => {
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
                 document.querySelector(".job_card").className =
                     "job_card job_card_no";
+                    
+                    // Fördröj anropet till loadJobs med 500ms (justera efter behov)
+                setTimeout(() => {
+                    loadJobs();
+                }, 600);
             });
         });
         playCount++;
     }
 }
 
+//Funktion för att återställa animationen playYes
 function playYes() {
     if (playCount < jobData.hits.length) {
         document.querySelector(".job_card").className = "job_card";
-        requestAnimationFrame((time) => {
-            requestAnimationFrame((time) => {
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
                 document.querySelector(".job_card").className =
                     "job_card job_card_yes";
+
+                    // Fördröj anropet till loadJobs med 500ms (justera efter behov)
+                setTimeout(() => {
+                    loadJobs();
+                }, 600);
             });
         });
         playCount++;
@@ -226,6 +235,5 @@ noIcon.addEventListener("click", increasePageVar, false);
 
 //Funktion för att öka page med 1 varje gång den anropas
 function increasePageVar() {
-    skip = page++;
-    loadJobs();
+    skip = page++; 
 }
