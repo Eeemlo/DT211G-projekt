@@ -81,8 +81,9 @@ $offset: 187;
 $duration: 1.4s;
 
 .spinner {
-    position: absolute;
-    margin: 50%;
+    position: relative;
+    top: 50%;
+    left: 45%;
   animation: rotator $duration linear infinite;
 }
 
