@@ -67,8 +67,6 @@ async function loadJobs() {
     );
     jobData = await response.json();
 
-    console.log(jobData);
-
     // Hämta användarens position och kör iterateJobs
     getUserLocation(() => {
         iterateJobs(jobData);
