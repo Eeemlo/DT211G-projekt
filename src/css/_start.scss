@@ -1,0 +1,57 @@
+@use "var";
+
+
+.square1 {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    padding: 0 1em;
+    background: linear-gradient(45deg,var.$bg-color, var.$pink-color , var.$darker-bg);
+    background-size: 600% 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    animation: gradient 16s linear infinite;
+    animation-direction: alternate;
+
+
+    h1 {
+        font-family: "orbitron";
+        font-size: 3em;
+        margin-bottom: 1em;
+        text-align: center;
+        animation: zoomIn 1s 0.5s both;
+    }
+
+    p {
+        text-align: center;
+        font-size: 1.2em;
+        animation: zoomIn 1s 1.5s both;
+    }
+}
+
+.button {
+    height: 3em;
+    width: 12em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var.$pop-color;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    margin-top: 3em;
+    text-decoration: none;
+    color: black;
+    animation: zoomIn 1s 2.5s both, shake 3s 0.5s infinite;
+}
+
+
+.button:hover {
+    background-color: var.$darker-pop-color;
+    cursor: pointer;
+    animation: none;
+}

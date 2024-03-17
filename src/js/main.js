@@ -38,7 +38,7 @@ function getUserLocation(callback) {
     };
 
     navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-}
+};
 
 
 
@@ -71,7 +71,7 @@ async function loadJobs() {
     getUserLocation(() => {
         iterateJobs(jobData);
     });
-}
+};
 
 // Läs in jobb
 loadJobs();
@@ -116,8 +116,8 @@ async function iterateJobs(jobData) {
         jobListings.innerHTML = '';
         errorMsg.innerHTML =
             "Hittade inga annonser, testa att göra en ny sökning";
-    }
-}
+    };
+};
 
 function saveToLocalStorage() {
     localStorage.setItem(`annons${page}`, JSON.stringify(jobData));
@@ -172,11 +172,10 @@ function truncate(description, maxLength = 50) {
     const ellipsis = "...";
 
     return truncated + ellipsis;
-}
+};
 
 //Funktion för att återställa animationen playNo
 function playNo() {
-    if (playCount < jobData.hits.length) {
         document.querySelector(".job_card").className = "job_card";
         requestAnimationFrame(() => {
             requestAnimationFrame(() => {
@@ -189,13 +188,10 @@ function playNo() {
                 }, 600);
             });
         });
-        playCount++;
-    }
-}
+};
 
 //Funktion för att återställa animationen playYes
 function playYes() {
-    if (playCount < jobData.hits.length) {
         document.querySelector(".job_card").className = "job_card";
         requestAnimationFrame(() => {
             requestAnimationFrame(() => {
@@ -208,9 +204,7 @@ function playYes() {
                 }, 600);
             });
         });
-        playCount++;
-    }
-}
+};
 
 //Öka antalet sparade annonser i blå ruta vid varje klick på hjärtat
 const amountEl = document.querySelector(".amount");
@@ -220,7 +214,7 @@ amountEl.innerHTML = i;
 function increaseHeartNo() {
     i = i + 1;
     amountEl.innerHTML = i;
-}
+};
 
 //Klickevent för yesIcon
 yesIcon.addEventListener("click", playYes, false);
@@ -234,4 +228,4 @@ noIcon.addEventListener("click", increasePageVar, false);
 //Funktion för att öka page med 1 varje gång den anropas
 function increasePageVar() {
     skip = page++; 
-}
+};

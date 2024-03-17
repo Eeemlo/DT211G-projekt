@@ -25,6 +25,7 @@
     user-select: none;
     animation: softLoad 2s;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .head-info {
@@ -49,30 +50,7 @@
 }
 
 
-.icon-container {
-    display: flex;
-    position: relative;
-    margin: 30px 1px 30px;
-    max-width: 700px;
-    width: 100%;
-    justify-content: center;
-    background-color: var.$pop-color;
-    border-radius: 20px 20px 20px 20px;
 
-    img {
-        max-width: 5em;
-        margin: 0 3em;
-        filter: grayscale(100%);
-        opacity: 30%;
-        transition: 1.5s ease;
-    }
-
-    img:hover {
-        filter: none;
-        opacity: 100%;
-        cursor: pointer;
-    }
-}
 
 #error-msg {
     display: flex;
@@ -84,4 +62,16 @@
     font-size: 1.5em;
     color: #fff;
     padding: 0 1em;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(var.$pop-color, var.$pink-color);
+    border-radius: 10px;
 }
