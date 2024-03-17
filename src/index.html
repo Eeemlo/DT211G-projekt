@@ -10,27 +10,36 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Orbitron:wght@400..900&display=swap"
+        rel="stylesheet">
+
 
 </head>
 
 <body>
-    <div class="square1"></div>
-    <div class="square2"></div>
-    <div class="square3"></div>
+    <div class="square1">
+        <h1 class="logo">Välkommen</h1>
+        <p>Här kan du "swipa" fram utvecklarjobb i hela Sverige eller för en specifik ort och se hur långt ifrån dig
+            jobbets plats ligger. </p>
+        <p>För att applikationen ska fungera som tänkt behöver du dela din plats.</p>
+        <a href="#section2" class="button">Ta mig till jobben!</a>
+        <div class="header-bar">DevDash</div>
     </div>
-    <div class="header-bar">DevDash</div>
-    <main>
+
+    </div>
+    <div class="header-bar2">DevDash</div>
+    <main id="section2">
+
 
         <div class="saved-jobs">
 
         </div>
         <div class="functions">
-            <button class="saved-button">
+            <div class="saved-button">
                 <div class="bar"><img src="icons/favorite.svg" alt="favoriter"></div>
                 <div class="amount"></div>
-            </button>
+            </div>
             <div class="search-container">
                 <div>
                     <label for="searchbar">Sök:</label>
@@ -42,17 +51,19 @@
 
 
         <div id="error-msg"></div>
-        </div>
 
 
-        <div id="job-listings">
-        </div>
+
+        <div id="job-listings"></div>
 
         <div class="icon-container">
             <img class="icon-no" src="icons/cancel.svg" alt="kryss">
             <img class="icon-yes" src="icons/heart.svg" alt="hjärta">
         </div>
     </main>
+
+
+
 
 
 </body>

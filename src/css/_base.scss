@@ -7,13 +7,14 @@
     margin: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var.$bg-color;
-    width: 100vw;
-    height: 100vh;
     overflow: hidden;
-    font-family: 'Manrope', verdana;
-
+    font-family: "Manrope", verdana;
 }
 
 main {
@@ -22,9 +23,12 @@ main {
     align-items: center;
     flex-direction: column;
     padding: 10px;
+    height: 90vh;
+    width: 100vw;
 }
 
-p, ul {
+p,
+ul {
     line-height: 1.8;
     letter-spacing: 0.5;
     font-size: 0.8em;
@@ -34,24 +38,97 @@ h2 {
     margin-bottom: 0.6em;
 }
 
-h3, h4, h5 {
+h3,
+h4,
+h5 {
     margin: 0.1em 0;
 }
 
+
 .header-bar {
-    max-height: 50px;
+    max-height: 30px;
     height: 100%;
     width: 100%;
-    background-color: var.$darker-bg;
-    top: 0;
-    font-family: 'orbitron';
+    background-color: none;
+    font-family: "orbitron";
     font-weight: 800;
     font-size: 2em;
     padding: 2px;
+    position: absolute;
+    bottom: 0;
+    margin: 0 0 20px 0;
     display: flex;
     justify-content: center;
     color: #fff;
 }
+
+.header-bar2 {
+    @extend .header-bar;
+    background: linear-gradient(45deg,var.$bg-color, var.$darker-bg , var.$bg-color);
+    background-size: 100% 100%;
+    position: relative;
+    top: 0;
+    max-height: 70px;
+    padding: 20px 0;
+    height: 100%;
+}
+
+.square1 {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    background: linear-gradient(45deg,var.$bg-color, var.$pink-color , var.$darker-bg);
+    background-size: 600% 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    animation: gradient 16s linear infinite;
+    animation-direction: alternate;
+
+
+    h1 {
+        font-family: "orbitron";
+        font-size: 3em;
+        margin-bottom: 1em;
+        text-align: center;
+        animation: zoomIn 1s 0.5s both;
+    }
+
+    p {
+        text-align: center;
+        font-size: 1.2em;
+        animation: zoomIn 1s 1.5s both;
+    }
+}
+
+.button {
+    height: 3em;
+    width: 12em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var.$pop-color;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    margin-top: 3em;
+    text-decoration: none;
+    color: black;
+    animation: zoomIn 1s 2.5s both, shake 3s 0.5s infinite;
+}
+
+.button:hover {
+    animation: none;
+}
+
+.button:hover {
+    background-color: var.$darker-pop-color;
+    cursor: pointer;
+}
+
 
 .amount {
     background-color: rgb(0, 8, 255);
@@ -70,12 +147,11 @@ h3, h4, h5 {
     font-weight: 600;
 }
 
-
-
 .saved-jobs {
     height: 70vh;
     overflow: scroll;
     padding: 0 0.5em;
+    margin-top: 70px;
 }
 
 .saved-links {
@@ -95,10 +171,6 @@ h3, h4, h5 {
     text-decoration: none;
 }
 
-
-
- 
-
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -107,7 +179,7 @@ h3, h4, h5 {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(var.$pop-color, #ff22e6);
+    background: linear-gradient(var.$pop-color, var.$pink-color);
     border-radius: 10px;
 }
 
@@ -119,7 +191,6 @@ h3, h4, h5 {
 }
 
 .search-container {
-    
     label {
         display: none;
     }
@@ -132,7 +203,7 @@ h3, h4, h5 {
         border: none;
     }
 
-    button {
+    #searchbutton {
         height: 2em;
         width: 4em;
         background-color: var.$pop-color;
@@ -140,11 +211,13 @@ h3, h4, h5 {
         border-radius: 5px;
         font-weight: 600;
     }
-
-    button:hover {
+    
+    #searchbutton:hover {
         background-color: var.$darker-pop-color;
         cursor: pointer;
     }
+
+
 }
 
 /*Mina sparade jobb*/
@@ -176,8 +249,6 @@ h3, h4, h5 {
     }
 }
 
-
-
 .saved-jobs {
     display: block;
     position: fixed;
@@ -194,4 +265,3 @@ h3, h4, h5 {
 .saved-jobs.active {
     left: 0;
 }
-

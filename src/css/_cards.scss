@@ -40,60 +40,18 @@
 
 
 .job_card_yes {
-    animation: swipeYes 1.5s;
+    animation: swipeYes 1.5s forwards;
 }
 
 .job_card_no {
-    animation: swipeNo 1.5s;
+    animation: swipeNo 1.5s forwards;
 }
 
-@keyframes swipeYes {
-    from {
-        transform: rotate(0);
-        left: 0%;
-        opacity: 1;
-    } to {
-        transform: rotate(90deg) translateY(-100px);
-        left: 100%;
-        opacity: 0;
-    }
-}
-
-@keyframes swipeNo {
-    from {
-        transform: rotate(0);
-        left: 0%;
-        opacity: 1;
-    } to {
-        transform: rotate(-90deg) translateY(-100px);
-        left: -100%;
-        opacity: 0;
-    }
-}
-
-@keyframes softLoad {
-    from {
-        height: 0%;
-        opacity: 0;
-    } to {
-        opacity: 1;
-        height: 100%;
-    }
-}
-
-
-.show-less {
-    display: none;
-}
-
-.show-more {
-    display: block;
-}
 
 .icon-container {
     display: flex;
     position: relative;
-    margin: 40px 1px 0px;
+    margin: 30px 1px 30px;
     max-width: 700px;
     width: 100%;
     justify-content: center;
