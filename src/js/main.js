@@ -55,7 +55,7 @@ button.addEventListener('click', function() {
     setTimeout(() => {
         const square1 = document.querySelector('.square1');
         square1.style.display = 'none';
-    }, 180); // Justera tiden beroende på hur länge smooth scroll tar
+    }, 500); // Justera tiden beroende på hur länge smooth scroll tar
 });
 
 
