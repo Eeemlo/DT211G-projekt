@@ -65,12 +65,10 @@ h5 {
 .header-bar2 {
     @extend .header-bar;
     background: linear-gradient(45deg,var.$bg-color, var.$darker-bg , var.$bg-color);
-    background-size: 100% 100%;
     position: relative;
     top: 0;
-    max-height: 70px;
     padding: 20px 0;
-    height: 100%;
+    max-height: 9vh;
 }
 
 .square1 {
