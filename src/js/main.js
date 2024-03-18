@@ -26,6 +26,22 @@ window.onload = function () {
     });
 };
 
+//Eventlyssnare med funktion som plockar bort all animering från knapp vid hover och därefter endast lägger till "shake" igen
+document.addEventListener('DOMContentLoaded', function () {
+    var button = document.getElementById('animatedButton');
+    button.classList.add('animate');
+
+    // Remove animation on hover
+    button.addEventListener('mouseover', function () {
+      button.style.animation = 'none';
+    });
+
+    // Add back animation on mouse leave
+    button.addEventListener('mouseleave', function () {
+      button.style.animation = 'shake 3s 0.5s infinite';
+    });
+  });
+
 // Hämta användarens position och returnera long + lat
 function getUserLocation(callback) {
     const successCallback = (position) => {
